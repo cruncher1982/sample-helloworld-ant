@@ -1,18 +1,21 @@
-// Declarative //
 pipeline {
-agent any
-stages {
-stage('Build') {
-steps {
-sh 'ant build'
-}
-}
-}
-}
+    agent any
 
-// Script //
-node {
-stage('Build') {
-sh 'ant build'
-}
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
